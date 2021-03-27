@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using NSwag;
 using UserManagement.Data;
 
 namespace UserManagement
@@ -28,6 +29,9 @@ namespace UserManagement
                     userNameidentifier: "foo.bar", // Will be written into ClaimTypes.NameIdentifier
                     userRole: "administrator");    // Will be written into ClaimTypes.Role
             services.AddControllers();
+            
+            services.AddSwaggerDocument();
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -36,6 +40,9 @@ namespace UserManagement
             {
                 app.UseDeveloperExceptionPage();
             }
+            
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
 
             app.UseHttpsRedirection();
             app.UseRouting();

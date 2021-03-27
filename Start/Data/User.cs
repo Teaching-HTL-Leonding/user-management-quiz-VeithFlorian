@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace UserManagement.Data
 {
@@ -21,5 +22,8 @@ namespace UserManagement.Data
 
         [MaxLength(100)]
         public string? LastName { get; set; }
+
+        [JsonIgnore]
+        public List<Group> Groups { get; set; } = new List<Group>();
     }
 }

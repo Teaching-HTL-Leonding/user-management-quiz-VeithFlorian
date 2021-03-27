@@ -12,6 +12,7 @@
     "UserManagement": {
       "commandName": "Project",
       "launchUrl": "weatherforecast",
+      //"commandLineArgs": "fill",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
